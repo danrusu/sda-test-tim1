@@ -1,0 +1,541 @@
+{
+	"info": {
+		"_postman_id": "c7af3ebb-342c-4537-a916-38b3966e4361",
+		"name": "SDA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Restful_Booker",
+			"item": [
+				{
+					"name": "health check",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "27133bf9-421e-4b0b-9bf1-74c59e4a5505",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);",
+									"",
+									"pm.test(\"Status code name is 'Created'\", function () {",
+									"    pm.response.to.have.status(\"Created\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "50a64363-0e4a-443c-abab-1edcafa9600a",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "token=16d2f037531ae80"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/ping",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "22426ed2-1321-48be-9010-2e89e3f7e9f4",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);",
+									"",
+									"pm.test(\"Token is retrieven as a string\", function () {",
+									"    ",
+									"    var jsonData = pm.response.json(); // parse JSON from body",
+									"    ",
+									"    console.log(jsonData);",
+									"    console.log(JSON.stringify(jsonData, null, 2));",
+									"    console.log(`jsonData.token: ${jsonData.token}`);",
+									"    ",
+									"    console.log(`jsonData.value ${jsonData.value}`); // should be undefined",
+									"    pm.expect(jsonData.token).to.be.a('string');",
+									"    ",
+									"    // auto generated snipet - Set an environment variable",
+									"    // pm.globals.set(\"variable_key\", \"variable_value\");",
+									"    pm.globals.set(\"token\", jsonData.token);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "32067d93-e91f-48e8-b3fc-f741a9502537",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}"
+						},
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/auth",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bookings ids",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4d64b293-208a-4f86-a466-9d18c4f0195f",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "a13a1fc3-bb5c-4cac-9357-a717dea1b3f9",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create booking",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f243060f-fb2a-4756-b1f8-11f833fd62db",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);",
+									"",
+									"const newBookingId = pm.response.json().bookingid;",
+									"console.log(`New booking id: ${newBookingId}`);",
+									"",
+									"pm.globals.set('newBookingId', newBookingId);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "bca49a6c-bf22-443e-b6b8-27c9684a46f9",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Jim\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2018-01-01\",\r\n        \"checkout\" : \"2019-01-01\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "booking by id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e676f020-1592-41c5-9bb2-a209f776b2a8",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "eef0023a-9454-4ef2-be7e-6df7edab294b",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking/{{newBookingId}}",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking",
+								"{{newBookingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update booking",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "74710eec-6fac-4f4e-9bf3-b18a2593595a",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f4276e33-94a1-4d6c-a44f-b16be39655f7",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "token={{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Jim\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : false,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2020-01-01\",\r\n        \"checkout\" : \"2020-01-10\"\r\n    },\r\n    \"additionalneeds\": \"none\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking/{{newBookingId}}",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking",
+								"{{newBookingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "partial update booking",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e9de7d4f-41da-441f-ada1-8aab933530fd",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0820127e-398c-47f2-9eb7-89afa0762f3f",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "token={{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Jim\",\r\n    \"lastname\" : \"Brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking/{{newBookingId}}",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking",
+								"{{newBookingId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete booking",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ff17718e-e2fe-400a-9ed7-be1b58e0129d",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Pre-request Script`);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "edb1bea6-7b3a-4152-a8ad-c01e4a4b5d17",
+								"exec": [
+									"console.log(`${pm.info.requestName} - Tests`);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin@rms.com",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "P@ssword1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"type": "text",
+								"value": "token={{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstname\" : \"Jim\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : 111,\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2020-01-01\",\r\n        \"checkout\" : \"2020-01-10\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RESTFULL_BOOKER_URL}}/booking/{{newBookingId}}",
+							"host": [
+								"{{RESTFULL_BOOKER_URL}}"
+							],
+							"path": [
+								"booking",
+								"{{newBookingId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8ec0231-dcc6-4037-be5a-4795cbf69b0f",
+						"type": "text/javascript",
+						"exec": [
+							"console.log('Restful_Booker folder Pre-request Scripts');"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b2426a45-2ba3-4fa2-abce-3a1354bb364b",
+						"type": "text/javascript",
+						"exec": [
+							"console.log('Restful_Booker folder tests');",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"   pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							"",
+							"pm.test(\"Response time is less than 1000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+							"});"
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ce5a6a0c-6307-4587-9705-6af6fe417e8e",
+				"type": "text/javascript",
+				"exec": [
+					"console.log('SDA collection Pre-request Scripts');"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5ee4571f-7340-4293-b224-0d478fa7c212",
+				"type": "text/javascript",
+				"exec": [
+					"console.log('SDA collection Tests');"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": []
+}
