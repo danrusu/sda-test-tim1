@@ -1,0 +1,15 @@
+### Java Homework 
+Using a IntelliJ IDEA solve the folowing tasks.
+
+1. Create a new Java project named `FirstJavaHomework`.
+
+2. In the new project, create a package named `homework1`.
+
+3. Create a new class named `Test`.
+
+4. Create a main method that can be executed and prints `This is my first java homework.`.
+
+Try using the templates / shorcuts for the main method signature and for the printing methdod call.
+
+5. Run the Test class.
+

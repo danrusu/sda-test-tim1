@@ -1,0 +1,24 @@
+### JavaScript Homework2 - Arrays, Loops, Functions
+Using a browser and Dev Tools solve the following tasks.
+
+1. Create an array containing the following numbers: 23 77, 45, 111, 4, 9, 33, 0, 99, 53, 77, 2, 11, 87, 100. Print the array in the console. 
+
+2. Print the array size.
+
+3. Print each element of the array on one line.
+
+4. From the initial array, create an aray of the numbers less than 50.
+
+5. From the initial array, create an aray of the numbers above than 30.
+
+6. From the initial array, create an aray of the numbers between 30 and 50.
+
+7. From the initial array, create an aray of the even numbers.
+
+8. From the initial array, create an aray of the odd numbers.
+
+9. Calculate the sum of all elements in the initial array.
+
+10. Calculate the sum of odd elements in the initial array.
+ 
+11. Sort the array descending and ascending.
