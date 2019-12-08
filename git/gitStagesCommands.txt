@@ -7,6 +7,7 @@ $ pwd
 /c/Users/danrusu/Desktop/sda/trainer
 
 $ git clone https://github.com/danrusu/sda-test-tim1.git
+$ cd sda-test-tim1
 $ git status
 On branch master
 Your branch is up to date with 'origin/master'.
