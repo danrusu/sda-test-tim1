@@ -1,0 +1,58 @@
+Simple flow for cloning and adding one file from working folder to the git remote repository (in GitBash):
+
+// Open GitBash
+
+$ cd ~/Desctop/sda/trainer 
+$ pwd
+/c/Users/danrusu/Desktop/sda/trainer
+
+$ git clone https://github.com/danrusu/sda-test-tim1.git
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+$ touch newFile.txt
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        newFile.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+$ git add -A
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   newFile.txt
+
+$ git commit -m "added newFile for testing purpose"
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+$ git push
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+ 
+
+
+
+
+
