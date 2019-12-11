@@ -62,22 +62,3 @@ Increase the age of `employee2`.
 Run again:
 youngestEmployeeName = Employee.getYoungestEmployeeName(employee1, employee2);
 Print `youngestEmployeeName`.
-
-
-
-
-
-
-
-
- 
-
-
-
-
-4. Create a main method that can be executed and prints `This is my first java homework.`.
-
-Try using the templates / shorcuts for the main method signature and for the printing methdod call.
-
-5. Run the Test class.
-
