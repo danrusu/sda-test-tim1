@@ -1,4 +1,4 @@
-/*### JavaScript Homework1 - JSON
+/*#1 JavaScript Homework1 - JSON
 Using a browser and Dev Tool, solve the following taks:
 1. Create and store in a variable a JSON object that contains the folowing information about a user:
 - first name: Mark

@@ -1,4 +1,4 @@
-### JavaScript Homework1 - JSON
+#1 JavaScript Homework1 - JSON
 
 Using a browser and Dev Tool, solve the following taks:
 

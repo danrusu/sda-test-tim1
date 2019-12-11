@@ -1,4 +1,4 @@
-### JavaScript Homework2 - Arrays, Loops, Functions
+#2 JavaScript Homework2 - Arrays, Loops, Functions
 Using a browser and Dev Tools solve the following tasks.
 
 1. Create an array containing the following numbers: 23 77, 45, 111, 4, 9, 33, 0, 99, 53, 77, 2, 11, 87, 100. Print the array in the console. 

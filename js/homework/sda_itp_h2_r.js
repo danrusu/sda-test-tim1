@@ -1,4 +1,4 @@
-//### JavaScript Homework2 - Arrays, Loops, Functions
+//#2 JavaScript Homework2 - Arrays, Loops, Functions
 //Using a browser and Dev Tools solve the following tasks.
 
 clear();

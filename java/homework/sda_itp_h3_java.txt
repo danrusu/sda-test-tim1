@@ -1,4 +1,4 @@
-### Java Homework 
+#3 Java Homework 
 Using a IntelliJ IDEA solve the folowing tasks.
 
 1. Create a new Java project named `FirstJavaHomework`.
