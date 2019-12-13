@@ -17,7 +17,7 @@ calculate the result of a given operation using the input numbers.
 9. If any input is empty the result of the Operation will be "One number input is empty"
 10. For DIVISION, if Number2 is 0 the result will be "Cannot divide by 0"
 
-Final application URL: http://danrusu.ro/calculate/app.html
+### [Final application](http://danrusu.ro/calculate/app.html)
 
 
 
