@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style> 
+    body{
+      margin: 0;
+      height: 1000px;
+    }
+
+    #app{      
+      margin: auto;      
+      border-left: 5px double indianred;
+      border-right: 5px double indianred;
+      height: 100%;
+      width: 1000px;  
+      text-align: center;    
+      font-size: large;
+    }
+
+    .title{
+      padding-top: 50px;      
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: xx-large;
+      font-weight: bolder;
+      color: indianred;
+    }
+
+    table {
+      margin: auto;
+      padding-top: 50px;
+      border-spacing: 20px;
+      border-collapse: separate;
+    }
+
+    button {
+      display: inline-block;
+      padding: 2px;
+      width: 900px;
+      font-size: large;
+      font-weight: bold;
+      color: white;
+      background-color: indianred;
+    }
+
+    input, select{
+      font-size: large;
+      text-align: center;
+    }
+    
+    td {
+      text-align: center;
+    }
+
+    .result{
+      border-bottom: 1px dotted gray;            
+      color: gray;      
+    }
+
+    [data-qa-test="result"] {
+      color: blue;      
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="title">Simple calculattor</div>
+        <table>
+          <tr>
+            <td><label>Number 1 </label><input id="nr1" type="number" /></td>
+            <td><label>Number </label><input id="nr2" type="number" /></td>
+            <td>
+              <label>Operation </label>
+              <select class="operation-selector">
+                <option value="1">SUM</option>
+                <option value="2">MULTIPLICATION</option>
+                <option value="3">DIVISION</option>
+              </select>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button name="calculate" onclick="updateResult(calculate());">CALCULATE</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" class="result">RESULT: <span data-qa-test="result"></span> </td>
+          </tr>
+        </table>      
+    </div>
+
+  <script>    
+    const MAX = 100;
+    const MIN = -100;
+
+    const reset = () => {
+      document.getElementById('nr1').value = 0;
+      document.getElementById('nr2').value = 0;
+    }
+
+    const anyInputIsEmpty = () => 
+      document.getElementById('nr1').value === '' 
+      || document.getElementById('nr1').value === ''; 
+    
+    const isNumberInRange = number => MIN <= number && number <= MAX;
+    
+    const sum = (nr1, nr2) => {
+      if (anyInputIsEmpty()){
+        return `One number input is empty`; 
+      }
+      if (!isNumberInRange(nr1) || !isNumberInRange(nr2)){
+        return `Number1 or Number2 is not in specified range: [${MIN}, ${MAX+1}]`;          
+      }
+      return nr1 + nr2;
+    }
+
+    const multiply = (nr1, nr2) => {
+      if (!isNumberInRange(nr1) || !isNumberInRange(nr2)){
+        return `Number is not in specified range: [${MIN}, ${MAX}]`;          
+      }
+      if (nr1 === MAX || nr2 === MIN){
+        return 0;
+      }
+      return nr1 * nr2;
+    }
+
+    const divide = (nr1, nr2) => {
+      if (anyInputIsEmpty()){
+        return `One number input is empty`; 
+      }
+      if (nr2 === 0){
+        return `Cannot divide by 0`;
+      }
+      return nr1 / nr2;
+    }
+
+    const calculate = () => {      
+      const nr1Element = document.getElementById('nr1');
+      const nr2Element = document.getElementById('nr2');
+      const operationElement = document.querySelector('.operation-selector');
+
+      const nr1 = parseInt(nr1Element.value);
+      const nr2 = parseInt(nr2Element.value);
+      const operationId = parseInt(operationElement.value);
+            
+      switch(operationId){
+        case 1: return sum(nr1, nr2);
+        case 2: return multiply(nr1, nr2);
+        case 3: return divide(nr1, nr2); 
+        default: throw new Error('Wrong operation');
+      }
+    };      
+
+    const updateResult = value => { 
+      const resultElement = document.querySelector('[data-qa-test="result"]');
+      console.log("result: " + value )
+      resultElement.innerHTML = value;
+    };
+
+  </script>
+
+</body>
+
+</html>
