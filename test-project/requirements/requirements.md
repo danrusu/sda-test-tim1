@@ -4,7 +4,7 @@ Build a web application that can take two numbers with values name and
 calculate the result of a given operation using the input numbers.
 
 ### Specifications / Constraints:
-0. Mockup
+0. [Mockup](./simpleCalculator_mockup1.JPG)
 1. Page title will be "calculate.app"
 2. Page header will be "Simple Calculator"
 3. Application has 2 numeric inputs labeled "Number 1" and "Number 2"
