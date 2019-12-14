@@ -1,4 +1,4 @@
-#4 Java Homework 
+### 4 Java Homework 
 Using a IntelliJ IDEA solve the folowing tasks.
 
 1. Create a new Java project named `basics`, create a package named `oop` inside the project.
