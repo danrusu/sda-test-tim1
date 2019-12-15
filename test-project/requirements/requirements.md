@@ -1,7 +1,9 @@
 ## Simple Calculator App Requirements
 
 Build a web application that can take two numbers with values name and 
-calculate the result of a given operation using the input numbers.
+calculate the result of a given operation using the input numbers. 
+
+Application should work in Chrome and Firefox.
 
 ### Specifications / Constraints:
 0. [Mockup](./simpleCalculator_mockup1.JPG).
