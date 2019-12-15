@@ -20,6 +20,7 @@ public class SeleniumDriver {
 
     public static WebDriver startChromeDriver(){
         System.setProperty("webdriver.chrome.driver", getChromeDriverPath());
+
         ChromeOptions options = new ChromeOptions();
         options.addArguments(Arrays.asList("--start-maximized"));
 

@@ -12,22 +12,29 @@ public class CalculateTest {
         WebDriver driver = SeleniumDriver.startChromeDriver();
         SeleniumDriver.setImplicitWait(driver, 5000);
 
+        CalculatePom calculatePage = new CalculatePom(driver);
+
         driver.navigate().to("http://www.danrusu.ro/calculate/app.html");
         String currentUrl = driver.getCurrentUrl();
         System.out.println("Url: " + currentUrl);
 
-        //driver.findElement(By.id("nr1")).sendKeys("3");
-        WebElement nr1Element = driver.findElement(By.cssSelector("#nr1"));
-        nr1Element.sendKeys("111");
+        calculatePage.setNumber1(1000);
+        calculatePage.setNumber2(50);
 
-        driver.findElement(By.cssSelector("#nr2")).sendKeys("7");
+        // set operation  (static method)
+//        CalculateUtils.setDivision(driver);
+//        SeleniumDriver.waitFor(2000);
+//        CalculateUtils.setSum(driver);
+//        SeleniumDriver.waitFor(2000);
+        CalculateUtils.setMultiplication(driver);
 
-        driver.findElement(By.cssSelector("button")).click();
+        // click the CALCULATE button
+        calculatePage.calculate();
 
-        String result = driver.findElement(By.cssSelector("*[data-qa-test=\"result\"]")).getText();
-        System.out.println("Result: " + result);
+        System.out.println("Result: " + calculatePage.getResult());
 
         System.out.println("Close driver");
         driver.quit();
     }
+
 }
