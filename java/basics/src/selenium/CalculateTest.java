@@ -20,7 +20,6 @@ public class CalculateTest {
 
         calculatePage.setNumber1(1000);
         calculatePage.setNumber2(50);
-
         // set operation  (static method)
 //        CalculateUtils.setDivision(driver);
 //        SeleniumDriver.waitFor(2000);
