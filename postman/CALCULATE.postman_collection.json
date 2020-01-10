@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "404bbdd6-a6d1-453b-b154-af3cbab84f1b",
+		"name": "CALCULATE",
+		"description": "Test collection for http://danrusu.ro/calculate/appApi.html back-end.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "calculate - data driven",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0214b4d9-0bff-4018-b794-bfa1a5a86e4d",
+						"exec": [
+							"pm.test('Status code is 200', () => pm.expect(pm.response.code).eql(200));",
+							"",
+							"//console.log(JSON.stringify(pm.iterationData.toJSON(), null, 2));",
+							"",
+							"if (pm.response.code !== 200) return;",
+							"",
+							"const number1 = pm.iterationData.get('Number1');",
+							"const number2 = pm.iterationData.get('Number2');",
+							"const operationId = pm.iterationData.get('OperationId');",
+							"const expectedResult = pm.iterationData.get('Result');",
+							"",
+							"const getOperationName = operationId => {",
+							"    switch (operationId){",
+							"        case 1: return 'SUM';",
+							"        case 2: return 'MULTIPLICATION';",
+							"        case 3: return 'DIVISION';",
+							"        default: return 'WRONG_OPERATION';",
+							"    }",
+							"}",
+							"",
+							"pm.test(`Result is ${pm.iterationData.get('Result')}`, () => {",
+							"    ",
+							"    const result = pm.response.json().result;",
+							"    console.log(`result: ${result}`);",
+							"    ",
+							"    const expectedResult = \"\" + pm.iterationData.get('Result');",
+							"    console.log(`Number1: ${number1} | Number2: ${number2} | Operation: ${getOperationName(operationId)}`);",
+							"    console.log(`Expected result: ${expectedResult}`);",
+							"    ",
+							"    pm.expect(result).to.eql(expectedResult);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "2babf27e-3651-49cc-955c-d638cc292490",
+						"exec": [
+							"if (! pm.iterationData.has('Number1')){",
+							"    throw new Error(\"This collection is meant to be executed DATA DRIVEN. Please Run collection with a test data file (i.e. calculateTestDataAll.csv).\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://danrusu.ro/api/calculate.php?firstNumber={{Number1}}&secondNumber={{Number2}}&operation={{OperationId}}",
+					"protocol": "http",
+					"host": [
+						"danrusu",
+						"ro"
+					],
+					"path": [
+						"api",
+						"calculate.php"
+					],
+					"query": [
+						{
+							"key": "firstNumber",
+							"value": "{{Number1}}"
+						},
+						{
+							"key": "secondNumber",
+							"value": "{{Number2}}"
+						},
+						{
+							"key": "operation",
+							"value": "{{OperationId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b2757554-5bbf-4a9e-bef9-3569588d048c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5cc327ea-9fc3-400d-b1ef-31b13fe5c359",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,4 @@
+Number1, Number2, OperationId, Result
+100, 10, 1, 110
+100, 10, 2, 1000
+100, 10, 3, 10
