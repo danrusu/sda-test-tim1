@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "1b01da78-d6e5-4e30-a0ca-5cbcd0f79515",
+		"name": "CALCULATE_helper",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get app.html home page",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "af4eca02-0fdf-4942-b1b2-52df438e69fe",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://danrusu.ro/calculate/app.html",
+					"protocol": "http",
+					"host": [
+						"danrusu",
+						"ro"
+					],
+					"path": [
+						"calculate",
+						"app.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get favicon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://danrusu.ro/favicon.ico",
+					"protocol": "http",
+					"host": [
+						"danrusu",
+						"ro"
+					],
+					"path": [
+						"favicon.ico"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get appApi.html home page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://danrusu.ro/calculate/appApi.html",
+					"protocol": "http",
+					"host": [
+						"danrusu",
+						"ro"
+					],
+					"path": [
+						"calculate",
+						"appApi.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calculate sum",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "66491fed-3b29-4c57-bb25-58cc03819320",
+						"exec": [
+							"const json = pm.response.json();",
+							"",
+							"//console.log(JSON.stringify(json, null, 2));",
+							"",
+							"const result = json.result;",
+							"console.log(`Result: ${result}`);",
+							"",
+							"",
+							"pm.test(\"Result is 110\", function () {",
+							"    pm.expect(result).to.eql('111');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://danrusu.ro/api/calculate.php?firstNumber=100&secondNumber=10&operation=1",
+					"protocol": "http",
+					"host": [
+						"danrusu",
+						"ro"
+					],
+					"path": [
+						"api",
+						"calculate.php"
+					],
+					"query": [
+						{
+							"key": "firstNumber",
+							"value": "100"
+						},
+						{
+							"key": "secondNumber",
+							"value": "10"
+						},
+						{
+							"key": "operation",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6c664db4-a811-4da7-8aad-43ecf8733223",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9a133216-5770-41cd-a6ef-35c43e6f9c8f",
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
