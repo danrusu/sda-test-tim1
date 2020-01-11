@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class CalculateUtils {
 
-    public static void setSum(WebDriver driver) {
+/*    public static void setSum(WebDriver driver) {
         setOperation(driver, 1);
     }
 
@@ -16,9 +16,9 @@ public class CalculateUtils {
 
     public static void setDivision(WebDriver driver) {
         setOperation(driver, 3);
-    }
+    }*/
 
-    private static void setOperation(WebDriver driver, int operationValue) {
+    public static void setOperation(WebDriver driver, int operationValue) {
         WebElement selector = driver.findElement(
                 By.cssSelector(".operation-selector"));
         WebElement option = driver.findElement(

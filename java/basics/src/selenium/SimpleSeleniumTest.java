@@ -12,7 +12,10 @@ public class SimpleSeleniumTest {
         WebDriver driver = SeleniumDriver.startChromeDriver();
         SeleniumDriver.setImplicitWait(driver, 5000);
 
-        driver.navigate().to("http://www.danrusu.ro");
+        //driver.navigate().to("http://www.danrusu.ro");
+        driver.get("http://www.danrusu.ro");
+
+
         String currentUrl = driver.getCurrentUrl();
         System.out.println("First url: " + currentUrl);
 
