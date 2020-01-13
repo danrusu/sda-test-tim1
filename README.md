@@ -8,6 +8,8 @@
 - [LinkedIn](https://www.linkedin.com/in/rusu-dan/)
 
 ### 2. [Postman - API test tool](https://github.com/danrusu/sda-test-tim1/tree/master/postman)
+
+- [Play smart with the backend](https://bit.ly/2LDEjo7) - [repository](https://github.com/danrusu/play-smart-with-the-backend)
  
 ### 3. [Basic JavaScript](https://github.com/danrusu/sda-test-tim1/tree/master/js/homework)
 
@@ -34,4 +36,3 @@
 - [selenium-webdriver-tutorial-java](https://testautomationu.applitools.com/selenium-webdriver-tutorial-java/)
 - [automating-your-api-tests-with-rest-assured](https://testautomationu.applitools.com/automating-your-api-tests-with-rest-assured/)
 
-- [Play smart with the backend](https://bit.ly/2LDEjo7)
