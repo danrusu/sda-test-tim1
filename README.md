@@ -34,3 +34,4 @@
 - [selenium-webdriver-tutorial-java](https://testautomationu.applitools.com/selenium-webdriver-tutorial-java/)
 - [automating-your-api-tests-with-rest-assured](https://testautomationu.applitools.com/automating-your-api-tests-with-rest-assured/)
 
+- [Play smart with the backend](https://bit.ly/2LDEjo7)
