@@ -52,6 +52,9 @@ class Operation {
 
             . '" }';
 
+	// i.e. $nr1 = 100, $nr2 = 0, $operation = 3
+        // { "numbers": [ "100", "0" ],"operation": "3","result": "Cannot divide by 0" }
+    
         return $result;
     }
 
