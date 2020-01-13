@@ -28,7 +28,7 @@
 
 - [Tasks](https://github.com/danrusu/sda-test-tim1/blob/master/test-project/tasks.md)
 
-- [downloaded web pages](https://github.com/danrusu/sda-test-tim1/tree/master/test-project/calculate)
+- [Downloaded web pages](https://github.com/danrusu/sda-test-tim1/tree/master/test-project/calculate)
 
 ## What's next (recommended)
 
