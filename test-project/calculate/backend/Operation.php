@@ -38,7 +38,6 @@ class Operation {
         }
     }
 
-
     public static function getJsonResult($n1, $n2, $operation) {
 
         $result = '{ "numbers": [ "' . $n1
