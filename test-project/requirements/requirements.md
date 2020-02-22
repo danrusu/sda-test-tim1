@@ -14,11 +14,11 @@ Application should work in Chrome and Firefox.
 
 3. Application has 2 numeric inputs labeled "Number 1" and "Number 2".
 
-4. Input numbers can be in the [-100, 100] range ov values.
+4. Input numbers can be in the [-100, 100] range of values.
 
-5. Operation label will be "Operation"; list of available operations: SUM, MULTIPLICATION, DIVISION.
+5. Operation input can have one of the following values: SUM, MULTIPLICATION, DIVISION. It will be labeled "Operation".
 
-6. A button with "CALCULATE" text will trigger the operation execution and result generation.
+6. A button with "CALCULATE" text will trigger the operation execution and generate the result in the RESULT area.
 
 7. The header title, result value and the "CALCULATE" button background will have "indianred" color.
 
