@@ -28,7 +28,7 @@ Application should work in Chrome and Firefox.
 
 10. For DIVISION, if Number2 is 0 then the result will be "Cannot divide by 0".
 
-### [Final application](http://danrusu.ro/calculate/app.html)
+### [Final application](http://qatools.ro/calculate/app.html)
 
 
 
